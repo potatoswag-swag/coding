@@ -1,6 +1,6 @@
 const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
-
+import { waypoints } from "/util/waypoints.js";
 
 export default class Mob {
     constructor(x, y){
@@ -8,7 +8,7 @@ export default class Mob {
         this.y = y
         this.width = 50
         this.height = 50
-        this.wpi = 0
+        this.wpi = 1
         this.oob = false
         this.center = {
             x: this.x + this.width / 2,
@@ -49,37 +49,3 @@ export default class Mob {
         console.log('this.oob', this.oob)
     }   
 };
-
-export const waypoints = [
-    {
-     "x":10, // 0
-     "y":192
-    }, 
-    {
-     "x":736,
-     "y":192
-    }, 
-    {
-     "x":736, // 2
-     "y":448
-    }, 
-    {
-     "x":128,
-     "y":448
-    }, 
-    {
-     "x":128, // 4
-     "y":576
-    }, 
-    {
-     "x":944,
-     "y":576
-    }, 
-    {
-     "x":945, // 6
-     "y":416
-    }, 
-    {
-     "x":1376,
-     "y":416
-    }]

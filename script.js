@@ -1,5 +1,5 @@
 import Mob from "/classes/mob.js";
-import { waypoints } from "/classes/mob.js";
+import { waypoints } from "/util/waypoints.js";
 
 export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
