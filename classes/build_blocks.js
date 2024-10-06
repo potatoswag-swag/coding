@@ -1,7 +1,7 @@
-import { blocks } from "/util/bblocks.js";
 const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
 import { mousemove } from "/script.js";
+import { blocks } from "/util/bblocks.js";
 export const Building_blocks = [];
 
 export class Build_blocks {
@@ -17,10 +17,10 @@ export class Build_blocks {
     update(){
         this.draw()
 
-        if ( (mousemove.x > this.x) &&
-            (mousemove.x < this.x + 32) &&
-            (mousemove.y > this.y) &&
-            (mousemove.y < this.y + 32))
+        if ( (mousemove.x - 9 > this.x) &&    // BANDAID -9 + 41 fix!!
+            (mousemove.x < this.x + 41) &&
+            (mousemove.y - 9 > this.y) &&
+            (mousemove.y < this.y + 41))
         {
             console.log('works')
             this.color = 'rgba(255, 255, 255, 0.2)'
