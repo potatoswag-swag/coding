@@ -1,6 +1,8 @@
 import Mob from "/classes/mob.js";
 import { waypoints } from "/util/waypoints.js";
 import Mob_flying from "/classes/mob_flying.js";
+import Mob_fast from "/classes/mob_fast.js";
+import Mob_big from "/classes/mob_big.js";
 
 export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
@@ -11,17 +13,27 @@ const newImage = new Image();
 newImage.src = 'sprites/mymap1.png';
 newImage.onload = () => animate();
 
-const mob = new Mob(waypoints[0].x - 100, waypoints[0].y - 50)
+const mob = new Mob(waypoints[0].x - 100, waypoints[0].y - 50)      // remake
 const mob2 = new Mob(-170, 140)
 const mob3 = new Mob(-240, 150)
 const mobf = new Mob_flying(waypoints[0].x, waypoints[0].y)
 const mobf2 = new Mob_flying(waypoints[0].x - 40, waypoints[0].y + 50)
+const mobfast = new Mob_fast(waypoints[0].x, waypoints[0].y)
+const mobfast2 = new Mob_fast(waypoints[0].x - 100, waypoints[0].y - 50)
+const mobfast3 = new Mob_fast(waypoints[0].x - 250, waypoints[0].y + 40)
+const mobbig = new Mob_big(waypoints[0].x - 100, waypoints[0].y - 50)
+const mobbig2 = new Mob_big(waypoints[0].x - 220, waypoints[0].y - 20)
+const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y + 70)
 
+
+let frame = 0  // useless
 
 function animate(){
     cc.drawImage(newImage, 0, 0);
 
-    if (!mob.oob){
+    // console.log(frame)
+
+    if (!mob.oob){   // remake
         mob.move()
     }
     if (!mob2.oob){
@@ -36,9 +48,27 @@ function animate(){
     if(!mobf2.oob){
         mobf2.move()
     }
+    if(!mobfast.oob){
+        mobfast.move()
+    }
+    if(!mobfast2.oob){
+        mobfast2.move()
+    }
+    if(!mobfast3.oob){
+        mobfast3.move()
+    }
+    if(!mobbig.oob){
+        mobbig.move()
+    }
+    if(!mobbig2.oob){
+        mobbig2.move()
+    }
+    if(!mobbig3.oob){
+        mobbig3.move()
+    }
 
-    console.log('anime works')
     requestAnimationFrame(animate)
 };
 
 /// todo center mob
+// path onc, x += 5

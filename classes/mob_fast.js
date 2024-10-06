@@ -1,13 +1,12 @@
 const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
 import { waypoints } from "/util/waypoints.js";
-
-export default class Mob {
+export default class Mob_fast {
     constructor(x, y){
         this.x = x
         this.y = y
-        this.width = 50
-        this.height = 50
+        this.width = 40
+        this.height = 40
         this.wpi = 1
         this.oob = false
         this.center = {
@@ -16,7 +15,7 @@ export default class Mob {
         }
     }
     draw(){
-        cc.fillStyle = 'lightblue'
+        cc.fillStyle = 'red'
         cc.fillRect(this.x, this.y, this.width, this.height)
     }
     move(){
@@ -27,29 +26,31 @@ export default class Mob {
         const disX = wp.x - this.center.x
         const a = Math.atan2(disY, disX)
 
-        this.x += Math.cos(a) 
+        this.x += Math.cos(a)
+        this.x += Math.cos(a) * 0.11
         this.y += Math.sin(a)
-        
+        this.x += Math.cos(a) * 0.11
+        console.log(' cos ', Math.cos(a))
+
         this.center = {
             x: this.x + this.width / 2,
             y: this.y + this.height / 2
         }
+        
 
-        console.log('this X', this.x) 
-        console.log('wp X', wp.x)
-        console.log('this Y', this.y)
-        console.log('wp Y', wp.y)
+        console.log('this dog center X', this.center.x) 
+        console.log('wp dog X', wp.x)
+        console.log('this dog Y', this.y)
+        console.log('wp dog Y', wp.y)
 
         if (Math.round(this.center.x) === Math.round(wp.x) && Math.round(this.center.y) === Math.round(wp.y) && (this.wpi < waypoints.length - 1)){
             this.wpi += 1
-            console.log('hit')
+            console.log('dog hit')
         };
 
         if ( Math.round(this.center.x) === Math.round(waypoints[waypoints.length - 1].x) ){
             this.oob = true
         }
-        console.log('this.oob', this.oob)
+        console.log('this.oob dog', this.oob)
     }   
 };
-
-// fix oob

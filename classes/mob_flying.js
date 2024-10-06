@@ -1,6 +1,6 @@
 const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
-import { waypoints } from "/util/waypoints.js";
+import { waypoints_flying } from "/util/waypoints.js";
 
 export default class Mob_flying {
     constructor(x, y){
@@ -14,7 +14,6 @@ export default class Mob_flying {
             x: this.x + this.width / 2,
             y: this.y + this.height / 2
         }
-        this.flydrift = Math.random() * (0.22)
     }
     draw(){
         cc.fillStyle = 'coral'
@@ -23,10 +22,10 @@ export default class Mob_flying {
     move(){
         this.draw()
 
-        const wp = waypoints[this.wpi]
+        const wp = waypoints_flying[this.wpi]
         const disY = wp.y - this.center.y
         const disX = wp.x - this.center.x
-        const a = Math.atan2(disY, disX) - this.flydrift  // +drift
+        const a = Math.atan2(disY, disX) + -(0.11) // +drift
 
         this.x += Math.cos(a)
         this.y += Math.sin(a)
@@ -36,16 +35,16 @@ export default class Mob_flying {
             y: this.y + this.height / 2
         }
 
-        console.log('this BIRD X', this.x) // DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``
-        console.log('wp BIRD X', wp.x)
+        // console.log('this BIRD X', this.x) // DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``
+        // console.log('wp BIRD X', wp.x)
 
-        if (Math.round(this.center.x) === Math.round(wp.x) && Math.round(this.center.y) === Math.round(wp.y) && (this.wpi < waypoints.length - 1)){
+        if (Math.round(this.center.x) === Math.round(wp.x) && Math.round(this.center.y) === Math.round(wp.y) && (this.wpi < waypoints_flying.length - 1)){
             this.wpi += 1
             console.log('bird hit') // DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``
         };
-        console.log('bird wpi', this.wpi) // DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``
+        // console.log('bird wpi', this.wpi) // DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``DELETELATER``
 
-        if ( Math.round(this.center.x) === Math.round(waypoints[waypoints.length - 1].x) ){
+        if ( Math.round(this.center.x) === Math.round(waypoints_flying[waypoints_flying.length - 1].x) ){
             this.oob = true
         }
         console.log('this.oob', this.oob)

@@ -2,12 +2,12 @@ const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
 import { waypoints } from "/util/waypoints.js";
 
-export default class Mob {
+export default class Mob_big {
     constructor(x, y){
         this.x = x
         this.y = y
-        this.width = 50
-        this.height = 50
+        this.width = 80
+        this.height = 80
         this.wpi = 1
         this.oob = false
         this.center = {
@@ -16,7 +16,7 @@ export default class Mob {
         }
     }
     draw(){
-        cc.fillStyle = 'lightblue'
+        cc.fillStyle = 'grey'
         cc.fillRect(this.x, this.y, this.width, this.height)
     }
     move(){
@@ -27,8 +27,8 @@ export default class Mob {
         const disX = wp.x - this.center.x
         const a = Math.atan2(disY, disX)
 
-        this.x += Math.cos(a) 
-        this.y += Math.sin(a)
+        this.x += Math.cos(a) / 1.4
+        this.y += Math.sin(a) / 1.4
         
         this.center = {
             x: this.x + this.width / 2,
@@ -51,5 +51,3 @@ export default class Mob {
         console.log('this.oob', this.oob)
     }   
 };
-
-// fix oob
