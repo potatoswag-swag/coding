@@ -3,6 +3,7 @@ import { waypoints } from "/util/waypoints.js";
 import Mob_flying from "/classes/mob_flying.js";
 import Mob_fast from "/classes/mob_fast.js";
 import Mob_big from "/classes/mob_big.js";
+import { Building_blocks } from "./classes/build_blocks.js";
 
 export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
@@ -21,12 +22,12 @@ const mobf2 = new Mob_flying(waypoints[0].x - 40, waypoints[0].y + 50)
 const mobfast = new Mob_fast(waypoints[0].x, waypoints[0].y)
 const mobfast2 = new Mob_fast(waypoints[0].x - 100, waypoints[0].y - 50)
 const mobfast3 = new Mob_fast(waypoints[0].x - 250, waypoints[0].y + 40)
-const mobbig = new Mob_big(waypoints[0].x - 100, waypoints[0].y - 50)
+const mobbig = new Mob_big(waypoints[0].x - 100, waypoints[0].y)
 const mobbig2 = new Mob_big(waypoints[0].x - 220, waypoints[0].y - 20)
-const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y + 70)
+const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y)
 
-
-let frame = 0  // useless
+let frame = 0  // useless 
+console.log(Building_blocks)
 
 function animate(){
     cc.drawImage(newImage, 0, 0);
@@ -66,6 +67,10 @@ function animate(){
     if(!mobbig3.oob){
         mobbig3.move()
     }
+
+    Building_blocks.forEach(e => {
+        e.draw()
+    })
 
     requestAnimationFrame(animate)
 };

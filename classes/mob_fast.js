@@ -30,27 +30,18 @@ export default class Mob_fast {
         this.x += Math.cos(a) * 0.11
         this.y += Math.sin(a)
         this.x += Math.cos(a) * 0.11
-        console.log(' cos ', Math.cos(a))
 
         this.center = {
             x: this.x + this.width / 2,
             y: this.y + this.height / 2
-        }
-        
-
-        console.log('this dog center X', this.center.x) 
-        console.log('wp dog X', wp.x)
-        console.log('this dog Y', this.y)
-        console.log('wp dog Y', wp.y)
+        };
 
         if (Math.round(this.center.x) === Math.round(wp.x) && Math.round(this.center.y) === Math.round(wp.y) && (this.wpi < waypoints.length - 1)){
             this.wpi += 1
-            console.log('dog hit')
         };
 
         if ( Math.round(this.center.x) === Math.round(waypoints[waypoints.length - 1].x) ){
             this.oob = true
         }
-        console.log('this.oob dog', this.oob)
     }   
 };

@@ -1,4 +1,4 @@
-export class Mob {
+export default class Mob {
     constructor(x, y){
         this.x = x;
         this.y = y;

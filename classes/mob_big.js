@@ -35,19 +35,13 @@ export default class Mob_big {
             y: this.y + this.height / 2
         }
 
-        console.log('this X', this.x) 
-        console.log('wp X', wp.x)
-        console.log('this Y', this.y)
-        console.log('wp Y', wp.y)
-
         if (Math.round(this.center.x) === Math.round(wp.x) && Math.round(this.center.y) === Math.round(wp.y) && (this.wpi < waypoints.length - 1)){
             this.wpi += 1
-            console.log('hit')
         };
 
         if ( Math.round(this.center.x) === Math.round(waypoints[waypoints.length - 1].x) ){
             this.oob = true
+            console.log('this.oob', this.oob)
         }
-        console.log('this.oob', this.oob)
     }   
 };
