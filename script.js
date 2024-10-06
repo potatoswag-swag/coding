@@ -3,7 +3,7 @@ import { waypoints } from "/util/waypoints.js";
 import Mob_flying from "/classes/mob_flying.js";
 import Mob_fast from "/classes/mob_fast.js";
 import Mob_big from "/classes/mob_big.js";
-import { Building_blocks } from "./classes/build_blocks.js";
+import { bblocks, Building_blocks } from "./classes/build_blocks.js";
 
 export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
@@ -28,6 +28,7 @@ const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y)
 
 let frame = 0  // useless 
 console.log(Building_blocks)
+console.log(bblocks)
 
 const active_turrets = []
 let active_tile = undefined

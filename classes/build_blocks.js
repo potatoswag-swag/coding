@@ -1,8 +1,8 @@
 import { blocks } from "/util/bblocks.js";
 const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
-export const Building_blocks = [];
 import { mousemove } from "/script.js";
+export const Building_blocks = [];
 
 export class Build_blocks {
     constructor(x, y){
@@ -29,7 +29,7 @@ export class Build_blocks {
         }
     }
 };
-const bblocks = [];
+export const bblocks = [];
 
 for (let i = 0; i < blocks.length; i += 40){
     bblocks.push(blocks.slice(i, i + 40))
