@@ -29,6 +29,9 @@ const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y)
 let frame = 0  // useless 
 console.log(Building_blocks)
 
+const active_turrets = []
+let active_tile = undefined
+
 function animate(){
     cc.drawImage(newImage, 0, 0);
 
@@ -69,11 +72,19 @@ function animate(){
     }
 
     Building_blocks.forEach(e => {
-        e.draw()
+        e.update(mousemove.x, mousemove.y)
     })
 
     requestAnimationFrame(animate)
 };
 
-/// todo center mob
-// path onc, x += 5
+export const mousemove = {
+    x: undefined,
+    y: undefined
+}
+c.addEventListener('mousemove', (e) => {
+    mousemove.x = e.clientX
+    mousemove.y = e.clientY
+    console.log(mousemove.x)
+    console.log(mousemove.y)
+});
