@@ -1,23 +1,15 @@
 const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
+import Mob from "./mob.js";
 import { waypoints } from "/util/waypoints.js";
 
-export default class Mob_big {
+export default class Mob_big extends Mob {
     constructor(x, y){
-        this.x = x
-        this.y = y
-        this.width = 80
-        this.height = 80
-        this.wpi = 1
-        this.oob = false
-        this.center = {
-            x: this.x + this.width / 2,
-            y: this.y + this.height / 2
-        }
+        super(x, y)
     }
     draw(){
         cc.fillStyle = 'grey'
-        cc.fillRect(this.x, this.y, this.width, this.height)
+        cc.fillRect(this.x, this.y, this.width + 20, this.height + 20) //<<<<<<<<<<<< + 20 TEMP <
     }
     move(){
         this.draw()

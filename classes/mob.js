@@ -27,7 +27,7 @@ export default class Mob {
         const disX = wp.x - this.center.x
         const a = Math.atan2(disY, disX)
 
-        this.x += Math.cos(a) 
+        this.x += Math.cos(a)   // <<<<<<<<<<<< ADD SUPER VAR
         this.y += Math.sin(a)
         
         this.center = {
