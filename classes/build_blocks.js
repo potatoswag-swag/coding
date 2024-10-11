@@ -2,7 +2,8 @@ const c = document.querySelector('canvas');
 const cc = c.getContext('2d');
 import { mousemove } from "/script.js";
 import { blocks } from "/util/bblocks.js";
-export const Building_blocks = [];
+
+export const Building_blocks = []; //!!!
 
 export class Build_blocks {
     constructor(x, y){
@@ -17,12 +18,12 @@ export class Build_blocks {
     update(){
         this.draw()
 
-        if ( (mousemove.x - 9 > this.x) &&    // BANDAID -9 + 41 fix!!
-            (mousemove.x < this.x + 41) &&
-            (mousemove.y - 9 > this.y) &&
-            (mousemove.y < this.y + 41))
+        if ( (mousemove.x - 8 > this.x) &&    // BANDAID -8 + 40 fix!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            (mousemove.x < this.x + 40) &&
+            (mousemove.y - 8 > this.y) &&
+            (mousemove.y < this.y + 40))
         {
-            console.log('works')
+            console.log('mouse over building block works')
             this.color = 'rgba(255, 255, 255, 0.2)'
         } else {
             this.color = 'rgba(0, 0, 0, 0.2)'
@@ -31,11 +32,11 @@ export class Build_blocks {
 };
 export const bblocks = [];
 
-for (let i = 0; i < blocks.length; i += 40){
+for (let i = 0; i < blocks.length; i += 40){   //workable array
     bblocks.push(blocks.slice(i, i + 40))
 };
 
-bblocks.forEach((arr, yi) => {
+bblocks.forEach((arr, yi) => {    //draw buildblocks
     arr.forEach((e, xi) => {
         if(e === 816){
             Building_blocks.push(new Build_blocks(xi * 32, yi * 32))

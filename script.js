@@ -3,7 +3,7 @@ import { waypoints } from "/util/waypoints.js";
 import Mob_flying from "/classes/mob_flying.js";
 import Mob_fast from "/classes/mob_fast.js";
 import Mob_big from "/classes/mob_big.js";
-import { bblocks, Building_blocks } from "./classes/build_blocks.js";
+import { Building_blocks } from "./classes/build_blocks.js";
 
 export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
@@ -14,7 +14,7 @@ const newImage = new Image();
 newImage.src = 'sprites/mymap1.png';
 newImage.onload = () => animate();
 
-const mob = new Mob(waypoints[0].x - 100, waypoints[0].y - 50)      // remake
+const mob = new Mob(waypoints[0].x - 100, waypoints[0].y - 50)      // placeholder
 const mob2 = new Mob(-170, 140)
 const mob3 = new Mob(-240, 150)
 const mobf = new Mob_flying(waypoints[0].x, waypoints[0].y)
@@ -26,19 +26,11 @@ const mobbig = new Mob_big(waypoints[0].x - 100, waypoints[0].y)
 const mobbig2 = new Mob_big(waypoints[0].x - 220, waypoints[0].y - 20)
 const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y)
 
-let frame = 0  // useless 
-console.log(Building_blocks)
-console.log(bblocks)
-
-const active_turrets = []
-let active_tile = undefined
 
 function animate(){
     cc.drawImage(newImage, 0, 0);
 
-    // console.log(frame)
-
-    if (!mob.oob){   // remake
+    if (!mob.oob){   // placeholder
         mob.move()
     }
     if (!mob2.oob){
@@ -79,13 +71,16 @@ function animate(){
     requestAnimationFrame(animate)
 };
 
+
 export const mousemove = {
     x: undefined,
     y: undefined
 }
+
+
 c.addEventListener('mousemove', (e) => {
     mousemove.x = e.clientX
     mousemove.y = e.clientY
-    console.log(mousemove.x)
-    console.log(mousemove.y)
+    console.log('x->', mousemove.x)
+    console.log('y->', mousemove.y)
 });
