@@ -17,7 +17,7 @@ export default class Mob_flying extends Mob{
         const wp = waypoints_flying[this.wpi]
         const disY = wp.y - this.center.y
         const disX = wp.x - this.center.x
-        const a = Math.atan2(disY, disX) + -(0.11) // +drift
+        const a = Math.atan2(disY, disX) - 0.7 // +drift
 
         this.x += Math.cos(a)
         this.y += Math.sin(a)
