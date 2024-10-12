@@ -7,8 +7,8 @@ import { Building_blocks } from "./classes/build_blocks.js";
 
 export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
-c.width = 1280;
-c.height = 768;
+c.width = window.innerWidth;
+c.height = window.innerHeight;
 cc.fillRect(0, 0, c.width, c.height);
 const newImage = new Image();
 newImage.src = 'sprites/mymap1.png';

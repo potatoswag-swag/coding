@@ -21,6 +21,11 @@ export default class Mob_flying extends Mob{
 
         this.x += Math.cos(a)
         this.y += Math.sin(a)
+        this.x += Math.cos(a)
+        this.x += Math.cos(a)
+        this.x += Math.cos(a)
+        this.x += Math.cos(a)
+        this.x += 1
 
         this.center = {
             x: this.x + this.width / 2,

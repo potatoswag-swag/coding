@@ -18,10 +18,10 @@ export class Build_blocks {
     update(){
         this.draw()
 
-        if ( (mousemove.x - 8 > this.x) &&    // BANDAID -8 + 40 fix!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            (mousemove.x < this.x + 40) &&
-            (mousemove.y - 8 > this.y) &&
-            (mousemove.y < this.y + 40))
+        if ( (mousemove.x > this.x) &&    // BANDAID -8 + 40 fix!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            (mousemove.x < this.x + 32) &&
+            (mousemove.y > this.y) &&
+            (mousemove.y < this.y + 32))
         {
             console.log('mouse over building block works')
             this.color = 'rgba(255, 255, 255, 0.2)'
@@ -36,7 +36,7 @@ for (let i = 0; i < blocks.length; i += 40){   //workable array
     bblocks.push(blocks.slice(i, i + 40))
 };
 
-bblocks.forEach((arr, yi) => {    //draw buildblocks
+bblocks.forEach((arr, yi) => {    //buildingblocks cprds
     arr.forEach((e, xi) => {
         if(e === 816){
             Building_blocks.push(new Build_blocks(xi * 32, yi * 32))
