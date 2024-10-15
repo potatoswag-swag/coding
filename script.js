@@ -1,8 +1,6 @@
 import Mob from "/classes/mob.js";
-import { waypoints } from "/util/waypoints.js";
-import Mob_flying from "/classes/mob_flying.js";
-import Mob_fast from "/classes/mob_fast.js";
-import Mob_big from "/classes/mob_big.js";
+import { waypoints1 } from "/util/waypoints.js";
+import { waypoints2 } from "/util/waypoints.js";
 import { Building_blocks } from "./classes/build_blocks.js";
 
 export const c = document.querySelector('canvas');
@@ -11,24 +9,20 @@ c.width = window.innerWidth;
 c.height = window.innerHeight;
 cc.fillRect(0, 0, c.width, c.height);
 const newImage = new Image();
-newImage.src = 'sprites/mymap1.png';
+newImage.src = 'sprites/lvl1.png';
 newImage.onload = () => animate();
 
-const mob = new Mob(waypoints[0].x - 100, waypoints[0].y - 50)      // placeholder
-const mob2 = new Mob(-170, 140)
-const mob3 = new Mob(-240, 150)
-const mobf = new Mob_flying(waypoints[0].x, waypoints[0].y)
-const mobf2 = new Mob_flying(waypoints[0].x - 40, waypoints[0].y + 50)
-const mobfast = new Mob_fast(waypoints[0].x, waypoints[0].y)
-const mobfast2 = new Mob_fast(waypoints[0].x - 100, waypoints[0].y - 50)
-const mobfast3 = new Mob_fast(waypoints[0].x - 250, waypoints[0].y + 40)
-const mobbig = new Mob_big(waypoints[0].x - 100, waypoints[0].y)
-const mobbig2 = new Mob_big(waypoints[0].x - 220, waypoints[0].y - 20)
-const mobbig3 = new Mob_big(waypoints[0].x - -50, waypoints[0].y)
-
+const mob = new Mob(waypoints1[0].x, waypoints1[0].y, waypoints1)      // placeholder
+const mob2 = new Mob(waypoints1[0].x - 80, waypoints1[0].y, waypoints1)
+const mob3 = new Mob(waypoints1[0].x - 160, waypoints1[0].y, waypoints1)
+const mob4 = new Mob(waypoints2[0].x, waypoints2[0].y, waypoints2)     
+const mob5 = new Mob(waypoints2[0].x + 80, waypoints2[0].y, waypoints2)
+const mob6 = new Mob(waypoints2[0].x + 160, waypoints2[0].y, waypoints2)
 
 function animate(){
     cc.drawImage(newImage, 0, 0);
+
+    console.log(window.innerHeight)
 
     if (!mob.oob){   // placeholder
         mob.move()
@@ -39,30 +33,16 @@ function animate(){
     if (!mob3.oob){
         mob3.move()
     }
-    if(!mobf.oob){
-        mobf.move()
+    if (!mob4.oob){   // placeholder
+        mob4.move()
     }
-    if(!mobf2.oob){
-        mobf2.move()
+    if (!mob5.oob){
+        mob5.move()
     }
-    if(!mobfast.oob){
-        mobfast.move()
+    if (!mob6.oob){
+        mob6.move()
     }
-    if(!mobfast2.oob){
-        mobfast2.move()
-    }
-    if(!mobfast3.oob){
-        mobfast3.move()
-    }
-    if(!mobbig.oob){
-        mobbig.move()
-    }
-    if(!mobbig2.oob){
-        mobbig2.move()
-    }
-    if(!mobbig3.oob){
-        mobbig3.move()
-    }
+
 
     Building_blocks.forEach(e => {
         e.update(mousemove.x, mousemove.y)
