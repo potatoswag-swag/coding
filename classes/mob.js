@@ -6,8 +6,8 @@ export default class Mob {
     constructor(x, y, wp){
         this.x = x
         this.y = y
-        this.width = 40
-        this.height = 40
+        this.width = 60
+        this.height = 60
         this.wp = wp
         this.wpi = 1
         this.image = new Image()
@@ -33,7 +33,7 @@ export default class Mob {
             44
         )
         this.imgwidthcounter++
-        if (this.imgwidthcounter % 8 === 0){
+        if (this.imgwidthcounter % 5 === 0){
             if (this.imgwidth > (this.image.width - (this.image.width / 13) - 1)){
                 this.imgwidth = 0
             } else {
@@ -49,8 +49,8 @@ export default class Mob {
         const disX = (wp.x - this.center.x)
         const a = Math.atan2(disY, disX)
 
-        this.x += Math.cos(a) / 2  // <<<<<<<<<<<< ADD SUPER VAR
-        this.y += Math.sin(a) / 2
+        this.x += Math.cos(a) / 2.5  // <<<<<<<<<<<< ADD SUPER VAR
+        this.y += Math.sin(a) / 2.5
         
         this.center = {
             x: this.x + this.width / 2,

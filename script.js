@@ -7,7 +7,7 @@ export const c = document.querySelector('canvas');
 export const cc = c.getContext('2d');
 c.width = window.innerWidth;
 c.height = window.innerHeight;
-cc.fillRect(0, 0, c.width, c.height);
+cc.fillRect(0, 0, c.width, c.height, 0, 0, c.width, c.height);
 const newImage = new Image();
 newImage.src = 'sprites/lvl1.png';
 newImage.onload = () => animate();
@@ -20,7 +20,7 @@ const mob5 = new Mob(waypoints2[0].x + 80, waypoints2[0].y, waypoints2)
 const mob6 = new Mob(waypoints2[0].x + 160, waypoints2[0].y, waypoints2)
 
 function animate(){
-    cc.drawImage(newImage, 0, 0);
+    cc.drawImage(newImage, 0, 0, newImage.width, newImage.height, 0, 0, c.width, c.height);
 
     console.log(window.innerHeight)
 
